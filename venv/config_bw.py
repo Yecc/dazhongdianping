@@ -1,0 +1,2 @@
+INDEX_URL = 'https://m.dianping.com/activity/static/list?page=1&cityid=&regionParentId=0&regionId=0&type=1&sort=0&filter=0'
+REQUEST_BING_URL = 'https://m.dianping.com/mobile/dinendish/apply/doApplyActivity'
