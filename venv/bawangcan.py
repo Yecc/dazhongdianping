@@ -23,7 +23,7 @@ end = False
 
 def get_index_urls(page_index):
     url = 'https://m.dianping.com/activity/static/list?page=' + str(
-        page_index) + '&cityid=&regionParentId=0&regionId=0&type=2&sort=0&filter=0'
+        page_index) + '&cityid=&regionParentId=0&regionId=0&type=1&sort=0&filter=0'
     r = s.get(url)
     if r.status_code == 200:
         return r.text
