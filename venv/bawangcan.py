@@ -23,7 +23,7 @@ end = False
 
 def get_index_urls(page_index):
     url = 'https://m.dianping.com/activity/static/list?page=' + str(
-        page_index) + '&cityid=&regionParentId=0&regionId=0&type=1&sort=0&filter=0'
+        page_index) + '&cityid=&regionParentId=0&regionId=0&type=2&sort=0&filter=0'
     r = s.get(url)
     if r.status_code == 200:
         return r.text
@@ -35,8 +35,11 @@ def parse_urls(html):
     content = json.loads(html)
     PageEnd = content['data']['pageEnd']
     Activitys = content['data']['mobileActivitys']
-    new_id = [Activity['offlineActivityId'] for Activity in Activitys]
-    ActivityId.extend(new_id)
+    for Activity in Activitys:
+        print(Activity['applyed'])
+        if Activity['applyed'] == False:
+            ActivityId.append(Activity['offlineActivityId'])
+            print('新上架' + Activity['title'])
     if PageEnd == 'true':
         end = True
 
