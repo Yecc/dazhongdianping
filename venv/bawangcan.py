@@ -36,7 +36,6 @@ def parse_urls(html):
     PageEnd = content['data']['pageEnd']
     Activitys = content['data']['mobileActivitys']
     for Activity in Activitys:
-        print(Activity['applyed'])
         if Activity['applyed'] == False:
             ActivityId.append(Activity['offlineActivityId'])
             print('新上架' + Activity['title'])
