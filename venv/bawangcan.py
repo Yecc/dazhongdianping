@@ -38,7 +38,7 @@ def parse_urls(html):
     for Activity in Activitys:
         if Activity['applyed'] == False:
             ActivityId.append(Activity['offlineActivityId'])
-            print('新上架' + Activity['title'])
+            print('新上架-' + Activity['title'])
     if PageEnd == 'true':
         end = True
 
@@ -70,6 +70,7 @@ def get_payload(activityid):
     branch = json.loads(r.text)
     print(r.text)
     if branch['data']['code'] == 402:
+        print('----------------------------选择分店--------------------------')
         branchid = get_branchId(activityid)
         payload = {
             'offlineActivityId': activityid, 'babyBirth': None, 'email': None, 'weddingDate': None, 'haveBaby': None,
